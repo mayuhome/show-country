@@ -51,12 +51,14 @@ export const DetailScreen = () => {
                 <Descriptions.Item label="Languages">{country?.languages.map(m => m.name).join(',')}</Descriptions.Item>
                 <Descriptions.Item label="Sub Region">{country?.subregion}</Descriptions.Item>
                 <Descriptions.Item label="Capital">{country?.capital}</Descriptions.Item>
-                <Descriptions.Item style={{marginTop: '3rem', paddingTop: '5rem'}} label="Border Countries">
-                    {country?.borders?.map(m => <div onClick={()=>routerToCountry(m)}>
+                <Descriptions.Item className='border-item' label="Border Countries">
+                    <div className="border-detail">
+                    {country?.borders?.map(m => <div key={m} onClick={()=>routerToCountry(m)}>
                     <Chip label={getName(m)} 
-                    style={{marginRight: '1rem', borderRadius: '0.5rem', cursor: 'pointer'}}/>
+                    style={{margin: '0.3rem 0.5rem', borderRadius: '0.5rem', cursor: 'pointer'}}/>
                     </div>
                     )}
+                    </div>
                     </Descriptions.Item>
                 </Descriptions>
             </div>

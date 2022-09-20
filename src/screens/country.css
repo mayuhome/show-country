@@ -22,11 +22,11 @@
 }
  .search-panel{
     width: 40rem;
-    margin-left: 5rem;
+    padding: 1rem 4rem;
 }
 .region-select{
-    width: 20rem;
-    margin-right: 5rem;
+    width: 40rem;
+    padding: 1rem 4rem;
 }
 .counties{
     margin: 2rem;
@@ -42,4 +42,35 @@
 
 .img{
     
+}
+
+@media screen and (max-width: 391px) {
+
+    .search-part{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .search-panel{
+        width: 100%;
+        padding: 1rem 4rem;
+    }
+    .region-select{
+        width: 100%;
+        padding: 1rem 4rem;
+    }
+
+    .counties{
+        margin: 2rem;
+        /* display: flex;
+        flex-wrap: wrap; */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        justify-items: center;
+        gap: 3rem;
+        overflow-y: auto;
+    }
 }

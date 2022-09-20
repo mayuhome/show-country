@@ -10,7 +10,9 @@
 
 .detail-container .detail{
     display: flex;
+    flex-direction: row;
     align-items: center;
+    padding: 3rem;
 }
 
 .detail-container .detail .flag{
@@ -23,4 +25,30 @@
 
 .detail-container .detail .info{
     flex-basis: 50%;
+}
+.border-item{
+    margin-top: 3rem;
+    padding-top: 5rem;
+
+}
+.border-detail{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    overflow: auto;
+}
+
+@media screen and (max-width: 391px) {
+    .detail-container .detail .flag{
+        /* flex-basis: 50%; */
+        width: 90%;
+        object-fit: contain;
+        margin: 4rem;
+        border: 1px solid lightgray;
+    }
+    .detail-container .detail{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -2,10 +2,16 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
 import { ERegion, RegionList } from '../utils/region';
 
-export const RegionSelectComponent = () => {
-    const [region, setRegion]=useState<ERegion>();
+
+interface IRegionSelectProps {
+    region: ERegion | undefined;
+    setRegion: (region: ERegion) => void;
+}
+
+export const RegionSelectComponent = ({region, setRegion}: IRegionSelectProps) => {
+    
     return <FormControl fullWidth>
-    <InputLabel id="demo-simple-select-label">Region</InputLabel>
+    <InputLabel id="demo-simple-select-label">Filter by Region</InputLabel>
     <Select
       labelId="demo-simple-select-label"
       id="demo-simple-select"

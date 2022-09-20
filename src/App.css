@@ -2,6 +2,7 @@
 
 html{
   /* 1rem = 10px */
+  font-family: 'Nunito Sans';
   font-size: 62.5%; 
 }
 
@@ -14,6 +15,10 @@ html body #root .App {
 .header{
   padding: 3rem;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
 }
 .main{
   display: flex;
