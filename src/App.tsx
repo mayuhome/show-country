@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { HeaderComponent } from './components/header';
+import { getAllCountries } from './api-data';
+import { Navigate, Route, Routes } from 'react-router';
+import { CountryListScreen } from './screens/country-list';
+import { DetailScreen } from './screens/detail';
 
 function App() {
+  const [counties, setCountries]=useState([]);
+  getAllCountries();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header">
+      <HeaderComponent/>
+      </div>
+      <div className="main">
+          <Routes>
+          <Route path={"countries"} element={<CountryListScreen />} />
+          <Route path={"countries/:code"} element={<DetailScreen />} />
+          <Route path='*' element={<Navigate to={`/countries`} replace />} />
+          </Routes>
+      </div>
     </div>
   );
 }
