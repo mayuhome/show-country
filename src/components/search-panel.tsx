@@ -10,13 +10,18 @@ export const SearchPanelCompoent = ({param, setParam}:ISearchPanelProps) => {
 
     return <div>
         <TextField fullWidth={true} 
+        sx={{
+            '& legend': { display: 'none' },
+            '& fieldset': { top: 0 },
+        }}
         InputProps={{
             startAdornment: (
                 <InputAdornment position='start'>
                     <SearchIcon/>
                 </InputAdornment>
-            )
+            ),
+            
         }}
-        id="outlined-basic" label="Country Name" variant="outlined" value={param} onChange={(evt) => setParam(evt.target.value)} placeholder='Search for a country...'/>
+         value={param} onChange={(evt) => setParam(evt.target.value)} placeholder='Search for a country...'/>
     </div>
 }
