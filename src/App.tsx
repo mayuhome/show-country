@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { HeaderComponent } from './components/header';
+import ToggleColorMode, { HeaderComponent } from './components/header';
 import { getAllCountries } from './api-data';
 import { Navigate, Route, Routes } from 'react-router';
 import { CountryListScreen } from './screens/country-list';
@@ -13,7 +13,8 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-      <HeaderComponent/>
+      {/* <HeaderComponent/> */}
+      <ToggleColorMode/>
       </div>
       <div className="main">
           <Routes>

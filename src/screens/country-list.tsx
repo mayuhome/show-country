@@ -21,17 +21,6 @@ export const CountryListScreen = () => {
         setFilterCountries(rel);
     }, [param, region]);
 
-    function queryCountries(){
-        console.log('region2:', region);
-        let rel = countries.filter(f => 
-            f.name.toLocaleLowerCase().includes(param.trim())
-            );
-        if(region){
-            rel = rel.filter(f => f.region === region);
-        }
-        setFilterCountries(rel);
-    }
-
 
     return <div className='country-list'>
         <div className="search-part">

@@ -1,8 +1,6 @@
 import { Button, Chip } from '@mui/material';
 import { Descriptions } from 'antd';
-import { url } from 'inspector';
-import { useState } from 'react'
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ICountry } from '../api-data';
 import './detail.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
