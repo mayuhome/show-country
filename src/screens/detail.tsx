@@ -1,4 +1,4 @@
-import { Button, Chip } from '@mui/material';
+import { Button, Chip, useTheme } from '@mui/material';
 import { Descriptions } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ICountry } from '../api-data';
@@ -6,6 +6,8 @@ import './detail.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const DetailScreen = () => {
+
+    const theme = useTheme();
     const { code } = useParams();
     const countries: ICountry[] = JSON.parse(localStorage.getItem('countries')||'');
     const country = countries.find(f => f.alpha3Code === code);
@@ -30,16 +32,20 @@ export const DetailScreen = () => {
     
     return <div className='detail-container'>
         <div className="back">
-            <Button variant="outlined"onClick={goBackword} startIcon={<ArrowBackIcon />}>
+            <Button style={{
+                background: theme.palette.background.default,
+                color: theme.palette.text.primary,
+                borderColor: theme.palette.text.primary
+            }} variant="outlined" onClick={goBackword} startIcon={<ArrowBackIcon />}>
                 Back
             </Button>
         </div>
-        <div className="detail">
+        <div className="detail" style={{color: theme.palette.text.primary}}>
             <img className="flag" src={country?.flag} alt={country?.name}/>
 
             <div className="info">
-                <Descriptions title={<div>
-                    <span style={{fontSize: '30px'}}>{country?.name}</span>
+                <Descriptions labelStyle={{fontWeight: 600, color: theme.palette.text.primary}} contentStyle={{color: theme.palette.text.secondary}} title={<div>
+                    <span style={{fontSize: '30px',color: theme.palette.text.primary}}>{country?.name}</span>
                 </div>} column={2}>
                 <Descriptions.Item label="Native Name">{country?.nativeName}</Descriptions.Item>
                 <Descriptions.Item label="Top Level Domain">{country?.topLevelDomain[0]||''}</Descriptions.Item>

@@ -5,7 +5,7 @@ import React from 'react';
 import { createContext, useContext, useMemo, useState } from 'react';
 import { getDesignTokens } from '../context/theme';
 
-const ColorModeContext = createContext({ toggleColorMode: () => {} });
+export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 export const HeaderComponent = () => {
     
@@ -19,7 +19,7 @@ export const HeaderComponent = () => {
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
-        bgcolor: 'background.default',
+        bgcolor: 'primary.main',//'background.default',
         color: 'text.primary',
         // borderRadius: 1,
         p: 3,
@@ -38,24 +38,24 @@ export const HeaderComponent = () => {
     </Box> 
 }
 
-export default function ToggleColorMode() {
-    const [mode, setMode] = React.useState<PaletteMode>('light');
-    const colorMode = React.useMemo(
-      () => ({
-        toggleColorMode: () => {
-          setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-        },
-      }),
-      [],
-    );
+// export default function ToggleColorMode() {
+//     const [mode, setMode] = React.useState<PaletteMode>('light');
+//     const colorMode = React.useMemo(
+//       () => ({
+//         toggleColorMode: () => {
+//           setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+//         },
+//       }),
+//       [],
+//     );
   
-    const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+//     const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
   
-    return (
-      <ColorModeContext.Provider value={colorMode}>
-        <ThemeProvider theme={theme}>
-          <HeaderComponent />
-        </ThemeProvider>
-      </ColorModeContext.Provider>
-    );
-  }
+//     return (
+//       <ColorModeContext.Provider value={colorMode}>
+//         <ThemeProvider theme={theme}>
+//           <HeaderComponent />
+//         </ThemeProvider>
+//       </ColorModeContext.Provider>
+//     );
+//   }

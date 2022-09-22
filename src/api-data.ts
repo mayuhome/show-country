@@ -16,14 +16,14 @@ export interface ICountry {
 
 export const getAllCountries = () => {
     const url = `https://restcountries.com/v2/all`;
-    return fetch(url,{
+    fetch(url,{
         headers: {
             "Content-Type": "application/json",
           }
     }).then(async res => {
         if (res.ok) {            
             localStorage.setItem('countries', JSON.stringify(await res?.json()))
-            return await res?.json();
+            // return await res?.json();
         } else {
             return Promise.reject(res?.json());
         }
